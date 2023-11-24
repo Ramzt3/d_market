@@ -4,6 +4,7 @@ from item.models import Category, Item
 
 from .forms import SignupForm
 
+
 def index(request):
     items = Item.objects.filter(is_sold=False).order_by('-created_at')[:6]
     categories = Category.objects.all()
@@ -15,6 +16,7 @@ def index(request):
 
 def contact(request):
     return render(request, "core/contact.html")
+
 
 def signup(request):
     if request.method == 'POST':
